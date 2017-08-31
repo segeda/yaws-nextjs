@@ -11,8 +11,8 @@ out(A) ->
 
 list() ->
     [{header, "Access-Control-Allow-Origin: *"},
-    {content, "application/json", "[{\"item\":1},{\"item\":2},{\"item\":3}]"}].
+    {content, "application/json", "[{\"id\":1,\"name\":\"Item 1\"},{\"id\":2,\"name\":\"Item 2\"},{\"id\":3,\"name\":\"Item 3\"}]"}].
 
 item(Id) ->
     [{header, "Access-Control-Allow-Origin: *"},
-    {content, "application/json", yaws_api:f("{\"item\":~p}", [Id])}].
+    {content, "application/json", yaws_api:f("{\"id\":~p,\"name\":\"Item ~p\"}", [Id, Id])}].
