@@ -1,0 +1,18 @@
+{
+  "name": "yaws-nextjs-client",
+  "version": "0.0.1",
+  "description": "nextjs client for yaws server",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "author": "Petr Severa <segedacz@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.15.2",
+    "isomorphic-unfetch": "^2.0.0",
+    "next": "^2.1.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
