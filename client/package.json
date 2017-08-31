@@ -4,7 +4,9 @@
   "description": "nextjs client for yaws server",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
   },
   "author": "Petr Severa <segedacz@gmail.com>",
   "license": "UNLICENSED",
