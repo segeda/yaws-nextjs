@@ -10,9 +10,16 @@ out(A) ->
     end.
 
 list() ->
+    Json = {array, [{struct, [{id, 1}, {name, "Item 1"}]},
+                    {struct, [{id, 2}, {name, "Item 2"}]},
+                    {struct, [{id, 3}, {name, "Item 3"}]}]},
+    Data = json2:encode(Json),
     [{header, "Access-Control-Allow-Origin: *"},
-    {content, "application/json", "[{\"id\":1,\"name\":\"Item 1\"},{\"id\":2,\"name\":\"Item 2\"},{\"id\":3,\"name\":\"Item 3\"}]"}].
+    {content, "application/json", Data}].
 
 item(Id) ->
+    Name =  list_to_binary(yaws_api:f("Item ~p", [Id])),
+    Json = {struct, [{id, Id}, {name, Name}]},
+    Data = json2:encode(Json),
     [{header, "Access-Control-Allow-Origin: *"},
-    {content, "application/json", yaws_api:f("{\"id\":~p,\"name\":\"Item ~p\"}", [Id, Id])}].
+    {content, "application/json", Data}].
